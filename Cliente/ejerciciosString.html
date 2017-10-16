@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicios con string</title>
+    <script type="text/javascript">
+        function comprobar() {
+            let frase = 'Esta Clase Seria una Maravilla si fuera de dia, ahora prefiero echar una Siestecilla1';
+
+            console.log(frase.endsWith('villa', 30)); //True porque acaba en la posicion 30
+            console.log(frase.includes('dia', 50)); //False porque empieza a buscar a partir de la posicion 50
+            console.log(frase.indexOf('illa')); //Busca la primera coincidencia de la cadena introducida empezando por el principio.
+            console.log(frase.lastIndexOf('illa')); //Busca la primera coincidencia de la cadena introducida empezando por el final.
+            console.log(frase.repeat(3));
+            console.log(frase.replace('illa', 'olla'));
+            console.log(frase.slice(0,30));
+            console.log(frase.split(''));
+            console.log(frase.startsWith('Es'));
+            console.log(frase.substr(11,19));
+            console.log(frase.substring(11,30));
+            console.log(frase.toLowerCase());
+            console.log(frase.toUpperCase());
+            console.log(frase.endsWith('number'));
+        }
+
+        function ejercicio1() {
+            let frase1 = 'AaCbD';
+
+            console.log(frase1);
+
+            frase1 = frase1.split('');
+
+            for (let i = 0; i < frase1.length; i++) {
+                if (frase1[i] === frase1[i].toUpperCase()){
+                    frase1[i] = frase1[i].toLowerCase();
+                } else {
+                    frase1[i] = frase1[i].toUpperCase();
+                }
+            }
+
+            frase1 = frase1.join('');
+
+            console.log(frase1);
+        }
+
+        function ejercicio2(number, texto) {
+            let frase = 'Hola Mundo';
+            let primeraParte;
+            let segundaparte;
+            let fraseCompleta;
+
+            primeraParte = frase.slice(0, number);
+            segundaparte = frase.slice(number);
+
+            fraseCompleta = `${primeraParte} ${texto}${segundaparte}`;
+
+            console.log(fraseCompleta);
+        }
+
+        //Dada una cadena de texto, forma otra cadena con todas las palabras que empiezen por una letra y terminen en un digito
+        function ejercicioCadena(frase){
+            let reg1 = /(^[a-z A-Z])/;
+            let reg2 = /[0-9]\b/;
+            let resultado = "";
+
+            console.log(frase);
+            frase = frase.split(" ");
+
+            for ( let i = 0; i < frase.length; i++){
+                if (reg1.test(frase[i]) && reg2.test(frase[i])){
+                    resultado = `${resultado}${frase[i]} `;
+                }
+            }
+
+            console.log(resultado);
+        }
+
+        //Funcion que codifica y decodifica una url
+        //Uri solo codifica ciertos caracteres
+        //UriComponent lo codifica toodo.
+        function urlcode(){
+            let code = "https://pruebas.com/my Prueba.asp?name=fran&apellido=molina";
+
+            console.log(encodeURI(code));
+            console.log(encodeURIComponent(code));
+            code = encodeURIComponent(code);
+            console.log(decodeURI(code));
+            console.log(decodeURIComponent(code));
+        }
+
+        function finito() {
+            let frase = "alkvnadpvnsdpovjsdpvsdpcvpsdvpspvjpisdvpsdvpiepodmj ";
+
+            console.log(isNaN(parseInt(frase)));
+
+        }
+
+        finito();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

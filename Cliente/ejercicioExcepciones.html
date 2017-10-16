@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Excepciones</title>
+
+    <script type="text/javascript">
+
+        function rangeError() {
+
+            let num = 2;
+
+            try{
+                num.toPrecision(100)
+            }catch(err) {
+                console.log(err.name, err.message)
+            }
+        }
+        rangeError()
+        
+        function referenceError() {
+
+            let x;
+
+            try {
+                x = y + 1;
+            }catch(err) {
+                console.log(err.name, err.message)
+            }
+            
+        }
+
+        referenceError();
+
+        function syntaxError() {
+
+
+            try {
+                eval("alert('Hello)");
+            } catch (err) {
+                console.log(err.name, err.message);
+            }
+        }
+
+        syntaxError();
+
+        function typeError() {
+
+
+            let x = 1;
+            try {
+                num.toUpperCase();
+            } catch (err) {
+                console.log(err.name, err.message);
+            }
+        }
+        typeError();
+
+        function uriError () {
+
+
+            let x;
+            try {
+                decodeURI("%%%");
+            } catch (err) {
+                console.log(err.name, err.message);
+            }
+        }
+        uriError();
+
+        function sumar(x) {
+            return x= x+5;
+        }
+
+        function sumarNumeros() {
+            let x = 10;
+            console.log(x);
+            sumar(x);
+            console.log(x)
+        }
+
+        function  incluirMavegador(listaNavegadores) {
+            listaNavegadores.push("Chrome");
+        }
+
+
+        function fibonacci(x) {
+
+            let var1 = 0;
+            let var2 = 1;
+            let var3;
+
+
+            for(let i=3; i <= x;i++)
+            {
+                var3 = var1 + var2;
+                var1 = var2;
+                var2 = var3;
+            }
+
+        }
+
+        fibonacci(5);
+
+
+
+        function fibonacci2(num) {
+            if (num <= 1) return 1;
+
+            return fibonacci(num - 1) + fibonacci(num - 2);
+
+
+        }
+
+        console.log(fibonacci2(5));
+
+        function multiply(a,b = 5) {
+            return a*b;
+        }
+
+        console.log(multiply(5, 7));
+
+
+        function multiply(multiplicador, ...valores) {
+
+            for (let i = 0 ; i < valores.length; i++){
+                valores[i] = valores[i] * multiplicador;
+            }
+            return valores;
+        }
+
+        console.log(multiply(2,1,2,3))
+
+
+        function  crearSumador(x) {
+            return function (y) {
+                return x + y;
+            };
+
+        }
+
+        let suma5 = crearSumador(5);
+        let suma10= crearSumador(10);
+
+        console.log(suma5(2));
+        console.log(suma10(2));
+
+        function crearDivision(x) {
+            return function (y) {
+                return x / y
+
+            };
+        }
+
+        let division = crearDivision(10);
+
+        console.log(division(0));
+
+        function crearComparacion(x) {
+            return function (y) {
+
+                if (x > y){
+                    return 1;
+                }else if ( x === y){
+                    return 0;
+                }else{
+                    return -1;
+                }
+
+
+            };
+        }
+
+        let comparar = crearComparacion(10)
+
+        console.log(comparar(11))
+
+
+
+        function mayorcadena(cadena) {
+            return function () {
+                let resultado = "0";
+                cadena = cadena.split(" ");
+
+                for (let i = 0; i < cadena.length; i++){
+                    if (!isNaN(cadena[i])){
+                        if (parseInt(cadena[i]) > parseInt(resultado)){
+                            resultado = `${cadena[i]}`;
+                        }
+                    }
+                }
+
+                return resultado;
+            }
+        }
+
+        let cadenas = mayorcadena("asdasd asda ffas 1 3 asdas 4 5");
+
+        console.log(cadenas())
+
+
+        let funcion1 = value => value +1;
+
+        let values = funcion1(3);
+        console.log(values);
+
+        let  suma1 = (n1, n2) => n1 + n2;
+
+        console.log(suma1(2,4));
+
+        let funcionSinargumentos = () => "Sin Argumentos"
+
+        function sumar5(x) {
+
+            return x + 5;
+
+        }
+
+        console.log(sumar5(5));
+
+        let sumaFlecha = a => sumar5(a);
+
+        console.log(sumaFlecha(5));
+
+        let mayorQue = (n1,n2) => n1 > n2 ? n1 : n2;
+
+        console.log(mayorQue(3,4));
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>
