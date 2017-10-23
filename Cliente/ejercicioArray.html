@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio Arrayh</title>
+    <script type="text/javascript">
+
+        var edades=[9,5,15,22,16,40,18,10];
+
+        var edades2=[9,5,15,22,16,40,18];
+
+        var holas = [3,"hola", "pepe", "ola","aureola"];
+
+        var numeros = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+
+
+        function comparar(x,y) {
+            return x < y;
+        }
+
+        edades.sort(comparar);
+        console.log(edades);
+
+        edades2.sort((x,y) => x < y);
+        console.log(edades2);
+
+        function esAdulto(edad) {
+            return edad >= 18
+        }
+
+        console.log(edades.filter(esAdulto));
+        console.log(edades.filter(x => x>=18));
+        console.log(edades.sort(edades).find(x => x %10 === 0));
+        console.log(edades.sort(edades).find(x => x / 3 === 6));
+        console.log(edades.forEach(esAdulto));
+
+
+        function calcularEdadPerro(edad) {
+
+            return edad * 7;
+
+        }
+
+        console.log(edades.map(calcularEdadPerro));
+        console.log(edades.map(x => x * 7));
+
+        function sumarEdades (total, num){
+            return total + num;
+        }
+
+        console.log(edades.reduce(sumarEdades));
+        console.log(edades.reduce((x,y) => x + y));
+
+        //funcion que dado un array ordene ese array por orden alfabetico y todas las cadenas que terminen en ola las una.
+
+        console.log(holas.sort()
+            .filter(x => x.toString().endsWith("ola"))
+            .reduce((x,y) => x + y));
+
+        //coger de una lñista de nmeros coger los que son pares y lo multiplicamos por ellos mismos y su suma me decis si es mayor de 300
+
+
+        console.log(numeros.filter(x => x % 2 === 0).map(x => x * x ).reduce((x,y) => x + y === res)).return(res > 300);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
